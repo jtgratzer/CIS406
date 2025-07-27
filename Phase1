@@ -1,0 +1,45 @@
+// Justin Gratzer, CIS 406, Project Phase 1
+package orderEntryPhase1;
+
+import java.util.Scanner;
+
+public class OrderEntryPhase1 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Inputs
+        System.out.print("Enter item number: ");
+        String itemNumber = input.nextLine();
+
+        System.out.print("Enter item description: ");
+        String itemDescription = input.nextLine();
+
+        System.out.print("Enter item price: ");
+        double itemPrice = input.nextDouble();
+
+        System.out.print("Enter quantity ordered: ");
+        int quantity = input.nextInt();
+
+        System.out.print("Enter the total tax for the item: ");
+        double taxAmount = input.nextDouble();
+
+        System.out.print("Enter the total discount for the item: ");
+        double discountAmount = input.nextDouble();
+
+        // Calculate net amount
+        double netAmount = (itemPrice * quantity) + taxAmount - discountAmount;
+
+        // Output with alignment using printf
+        System.out.println("\nOrder Details:\n");
+
+        // Header
+        System.out.printf("%-15s%-20s%-15s%-10s%-10s%-12s%-12s\n",
+                "Item Number", "Item Description", "Item Price", "Qty", "Tax", "Discount", "Net Amount");
+
+        // Data row
+        System.out.printf("%-15s%-20s$%-14.2f%-10d$%-9.2f$%-11.2f$%-11.2f\n",
+                itemNumber, itemDescription, itemPrice, quantity, taxAmount, discountAmount, netAmount);
+
+        input.close();
+    }
+}
